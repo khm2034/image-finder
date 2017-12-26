@@ -64,21 +64,13 @@ namespace image_finder
                     {
                         imageArrIndex++;
                         imageArr.Add((Image)BitmapFromURL(result.Image.ThumbnailLink));
-                       
-                        //if (!result.Pagemap.Equals(null) && result.Pagemap.ContainsKey("cse_thumbnail"))
-                        //{
-                        //    //Console.WriteLine(result.Pagemap["cse_thumbnail"][0]["src"]);
-                        //    imageArrIndex++;
-                        //    imageArr.Add((Image)BitmapFromURL(result.Pagemap["cse_thumbnail"][0]["src"].ToString()));
-                        //}
-                        //imageArr[imageArrIndex++] = result.Image.;
-                        //pictureBox1.Image = result.Image.ThumbnailLink;
                     }
                 }
                 imageArrSize = imageArrIndex;
                 imageArrIndex = 0;
                 
                 pictureBox1.Image = imageArr[imageArrIndex];
+                Clipboard.SetImage(pictureBox1.Image);
             }
         }
 
@@ -103,6 +95,7 @@ namespace image_finder
             {
                 imageArrIndex--;
                 pictureBox1.Image = imageArr[imageArrIndex];
+                Clipboard.SetImage(pictureBox1.Image);
             }
         }
 
@@ -112,6 +105,7 @@ namespace image_finder
             {
                 imageArrIndex++;
                 pictureBox1.Image = imageArr[imageArrIndex];
+                Clipboard.SetImage(pictureBox1.Image);
             }
         }
     }
